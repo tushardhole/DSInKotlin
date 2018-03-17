@@ -169,4 +169,22 @@ class LinkedListTest {
         assertEquals(4, ll.get(2)?.value)
         assertEquals(true, isDeleted)
     }
+
+    @Test
+    fun shouldGetElementAtGivenIndex() {
+        var ll = LinkedList()
+        var firstNode = Node(1, null)
+        var secondNode = Node(2, null)
+        var thirdNode = Node(3, null)
+        var fourthNode = Node(4, null)
+        ll.add(firstNode)
+        ll.add(secondNode)
+        ll.add(thirdNode)
+        ll.add(fourthNode)
+
+        assertEquals(1, ll.get(0)?.value)
+        assertEquals(2, ll.get(1)?.value)
+        assertEquals(3, ll.get(2)?.value)
+        assertEquals(4, ll.get(3)?.value)
+    }
 }

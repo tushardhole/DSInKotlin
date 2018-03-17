@@ -61,14 +61,12 @@ class LinkedList {
             size--
             return true
         }
-        var temp = head
-        if (index != 1) {
-            for (i in 0..index -2) {
-                temp = temp?.next
-            }
+        var oneBeforeNodeToBeDeleted = head
+        for (i in 0..index - 2) {
+            oneBeforeNodeToBeDeleted = oneBeforeNodeToBeDeleted?.next
         }
-        temp?.next = temp?.next?.next
-        temp?.next?.next = null
+        oneBeforeNodeToBeDeleted?.next = oneBeforeNodeToBeDeleted?.next?.next
+        oneBeforeNodeToBeDeleted?.next?.next = null
         size--
         return true
     }
