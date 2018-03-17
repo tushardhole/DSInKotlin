@@ -1,3 +1,5 @@
+import linkedlist.LinkedList
+import linkedlist.Node
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
