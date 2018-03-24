@@ -78,4 +78,47 @@ class BSTTest {
         assertEquals(13, rootNode.right?.right?.right?.value);
     }
 
+    @Test
+    fun shouldInsertAtInLeftAndRightSubTreeRec() {
+        /*
+                     10
+                   2    11
+                 1  3      12
+                            13
+*/
+        var bst = BST(10)
+        bst.insertKey2(2)
+        bst.insertKey2(3)
+        bst.insertKey2(1)
+        bst.insertKey2(11)
+        bst.insertKey2(12)
+        bst.insertKey2(13)
+        var rootNode = bst.root
+        assertEquals(10, rootNode.value);
+
+        assertEquals(2, rootNode.left?.value);
+        assertEquals(1, rootNode.left?.left?.value);
+        assertEquals(3, rootNode.left?.right?.value);
+
+        assertEquals(11, rootNode.right?.value);
+        assertEquals(12, rootNode.right?.right?.value);
+        assertEquals(13, rootNode.right?.right?.right?.value);
+    }
+
+    @Test
+    fun shouldNotInsertDuplicates() {
+
+        var bst = BST(10)
+        bst.insertKey2(2)
+        bst.insertKey2(2)
+        bst.insertKey(2)
+        var rootNode = bst.root
+        assertEquals(10, rootNode.value);
+
+        assertEquals(2, rootNode.left?.value);
+        assertEquals(null, rootNode.left?.left);
+        assertEquals(null, rootNode.left?.right);
+        assertEquals(null, rootNode.right);
+    }
+
 }
