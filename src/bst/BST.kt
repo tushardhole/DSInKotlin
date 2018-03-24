@@ -2,35 +2,31 @@ package bst
 
 class BST {
 
-    var root: Node? = null
+    var root: Node
+
+    constructor(rootKey: Int) {
+        this.root = Node(rootKey)
+    }
 
     fun insertKey(key: Int) {
-        if (root == null) {
-            root = Node(key)
-            return
-        }
-        var rootValue = root?.value as Int
-        if (key < rootValue) {
-            insertToLeftSubTree(root, key)
-        }
-        if (key > rootValue) {
-            insertToLeftRightTree(root, key)
-        }
-    }
+        var current: Node? = root
+        var parent: Node?;
 
-    fun insertToLeftSubTree(root: Node?, key: Int) {
-        if (root?.left != null && key < root?.left?.value as Int) {
-            insertToLeftSubTree(root?.left, key)
-        } else {
-            root?.left = Node(key)
-        }
-    }
-
-    fun insertToLeftRightTree(root: Node?, key: Int) {
-        if (root?.right != null && key > root?.right?.value as Int) {
-            insertToLeftRightTree(root?.right, key)
-        } else {
-            root?.right = Node(key)
+        while (true) {
+            parent = current;
+            if (current != null && key < current.value as Int) {
+                current = current.left;
+                if (current == null) {
+                    parent?.left = Node(key);
+                    return;
+                }
+            } else {
+                current = current?.right;
+                if (current == null) {
+                    parent?.right = Node(key);
+                    return;
+                }
+            }
         }
     }
 }
