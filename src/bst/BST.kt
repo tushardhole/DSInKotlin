@@ -40,6 +40,26 @@ class BST {
         root = insertRec(root, key);
     }
 
+    fun contains(key: Int): Boolean {
+        return search(root, key)
+    }
+
+    private fun search(parent: Node?, key: Int): Boolean {
+        if(parent == null){
+            return false
+        }
+        if(key == parent.value) {
+            return true
+        }
+        if(key < parent.value){
+            return search(parent.left, key)
+        }
+        if(key > parent.value){
+            return search(parent.right, key)
+        }
+        return false
+    }
+
     private fun insertRec(parent: Node?, key: Int): Node {
         if (parent == null) {
             return Node(key)

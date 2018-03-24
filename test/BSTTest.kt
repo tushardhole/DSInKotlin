@@ -121,4 +121,22 @@ class BSTTest {
         assertEquals(null, rootNode.right);
     }
 
+    @Test
+    fun shouldSearch() {
+        var bst = BST(10)
+        bst.insertKey(2)
+        bst.insertKey2(4)
+        bst.insertKey(5)
+        bst.insertKey2(100)
+
+        assertEquals(true, bst.contains(10));
+        assertEquals(true, bst.contains(2));
+        assertEquals(true, bst.contains(4));
+        assertEquals(true, bst.contains(5));
+        assertEquals(true, bst.contains(100));
+
+        assertEquals(false, bst.contains(1));
+        assertEquals(false, bst.contains(3));
+        assertEquals(false, bst.contains(55));
+    }
 }
