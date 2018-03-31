@@ -84,4 +84,24 @@ class LinkedList {
     fun size(): Int {
         return size
     }
+
+
+    override fun toString(): String {
+        if (head == null)
+            return "[]";
+
+        var buffer = StringBuffer()
+        buffer.append("[")
+        var node = head
+
+        do {
+            buffer.append(node?.value.toString() + ",")
+            node = node?.next
+        } while (node?.next != null)
+
+        buffer.append(node?.value);
+
+        buffer.append("]")
+        return buffer.toString()
+    }
 }

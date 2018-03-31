@@ -189,4 +189,26 @@ class LinkedListTest {
         assertEquals(3, ll.get(2)?.value)
         assertEquals(4, ll.get(3)?.value)
     }
+
+
+    @Test
+    fun shouldPrintLinkedList() {
+        var ll = LinkedList()
+        var firstNode = Node(1, null)
+        var secondNode = Node(2, null)
+        var thirdNode = Node(3, null)
+        var fourthNode = Node(4, null)
+        ll.add(firstNode)
+        ll.add(secondNode)
+        ll.add(thirdNode)
+        ll.add(fourthNode)
+
+        assertEquals("[1,2,3,4]", ll.toString());
+    }
+
+    @Test
+    fun shouldPrintEmptyLinkedList() {
+        var ll = LinkedList()
+        assertEquals("[]", ll.toString());
+    }
 }
