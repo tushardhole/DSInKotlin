@@ -2,7 +2,7 @@ package linkedlist
 
 class LinkedList {
 
-    private var head: Node? = null
+    var head: Node? = null
     private var tail: Node? = null
     private var size: Int = 0;
 
@@ -94,10 +94,10 @@ class LinkedList {
         buffer.append("[")
         var node = head
 
-        do {
+        while (node?.next != null) {
             buffer.append(node?.value.toString() + ",")
             node = node?.next
-        } while (node?.next != null)
+        }
 
         buffer.append(node?.value);
 

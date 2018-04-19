@@ -203,12 +203,21 @@ class LinkedListTest {
         ll.add(thirdNode)
         ll.add(fourthNode)
 
-        assertEquals("[1,2,3,4]", ll.toString());
+        assertEquals("[1,2,3,4]", ll.toString())
+    }
+
+    @Test
+    fun shouldPrintLinkedListOfOneElement() {
+        var ll = LinkedList()
+        var firstNode = Node(1, null)
+        ll.add(firstNode);
+
+        assertEquals("[1]", ll.toString())
     }
 
     @Test
     fun shouldPrintEmptyLinkedList() {
         var ll = LinkedList()
-        assertEquals("[]", ll.toString());
+        assertEquals("[]", ll.toString())
     }
 }
